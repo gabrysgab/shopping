@@ -1,0 +1,3 @@
+<p><%= shopping_item.content%> <%=shopping_item.buyer%> <%=shopping_item.quantity%> <%=shopping_item.price%></p>
+<%= link_to "Delete", shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :delete, data: { confirm: "Are you sure?" } %>
+

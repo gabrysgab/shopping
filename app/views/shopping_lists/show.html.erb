@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @shopping_list.title %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @shopping_list.comment %>
+</p>
+
+<div id="shopping_items_wrapper">
+<%= render @shopping_list.shopping_items%>
+	<div id="form">
+	<%= render "shopping_items/form"%>
+	</div>
+ </div>
+
+
+
+
+<%= link_to 'Edit', edit_shopping_list_path(@shopping_list) %> |
+<%= link_to 'Back', shopping_lists_path %>
