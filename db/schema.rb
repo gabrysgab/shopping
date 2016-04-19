@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418190458) do
+ActiveRecord::Schema.define(version: 20160419191347) do
 
   create_table "shopping_items", force: :cascade do |t|
     t.string   "content"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160418190458) do
     t.integer  "shopping_list_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.datetime "completed"
   end
 
   add_index "shopping_items", ["shopping_list_id"], name: "index_shopping_items_on_shopping_list_id"
