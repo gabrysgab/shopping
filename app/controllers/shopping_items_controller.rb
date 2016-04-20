@@ -6,6 +6,10 @@ class ShoppingItemsController < ApplicationController
 		redirect_to @shopping_list
 	end
 
+  def new
+    @shopping_item = ShoppingItem.new
+  end
+
 	def destroy
 		if @shopping_item.destroy
 			flash[:succes] = "Shopping item was deleted"
