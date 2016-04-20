@@ -6,9 +6,7 @@ class ShoppingItemsController < ApplicationController
 		redirect_to @shopping_list
 	end
 
-  def new
-    @shopping_item = ShoppingItem.new
-  end
+
 
 	def destroy
 		if @shopping_item.destroy
@@ -18,6 +16,8 @@ class ShoppingItemsController < ApplicationController
 		end
 		redirect_to @shopping_list
 	end
+
+
 
   def complete
     @shopping_item.update_attribute(:completed, Time.now)

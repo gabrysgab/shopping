@@ -1,4 +1,14 @@
-<%= form_for([@shopping_list, @shopping_list.shopping_items.build]) do |f| %>
+<%= form_for([@shopping_list, @shopping_item]) do |f| %>
+<% if @shopping_item.errors.any? %>
+  <div>
+    <h2><%= pluralize(@shopping_item.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+    <% @shopping_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 	<%= f.text_field :content, placeholder: "New Item" %>
 	<%= f.text_field :quantity, placeholder: "Qty" %>
 	<%= f.text_field :price, placeholder: "Price" %>
