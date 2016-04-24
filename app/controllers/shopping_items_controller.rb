@@ -1,10 +1,16 @@
 class ShoppingItemsController < ApplicationController
 	before_action :set_shopping_list
   before_action :set_shopping_item, except: [:create]
-	def create
-		@shopping_item = @shopping_list.shopping_items.create(shopping_item_params)
-		redirect_to @shopping_list
-	end
+
+ def create
+    
+    @shopping_item = @shopping_list.shopping_items.new(shopping_item_params)
+    if @shopping_item.save
+      redirect_to @shopping_list
+      else
+        render 'shopping_lists/show'
+      end
+  end
 
 
 

@@ -44,7 +44,18 @@ div {
 .field_with_errors {
   padding: 2px;
   background-color: red;
-  display: table;
+  display: inline;
+  color: red;
+}
+
+span.error_proc input {
+  padding: 2px;
+  background-color: red;
+  display: inline;
+  color: black;
+
+
+
 }
 
 #error_explanation {

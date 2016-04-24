@@ -1,3 +1,4 @@
+<% if shopping_item.persisted? %>
 <% if shopping_item.completed? %>
 <ul style="color:green"><strike>
   <li>Item : <%= shopping_item.content%></li>
@@ -16,5 +17,6 @@
 </ul>
 <%= link_to "Delete", shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "Mark as completed", complete_shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :patch %>
+<% end %>
 <% end %>
 
