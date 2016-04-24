@@ -4,4 +4,8 @@ class ShoppingList < ActiveRecord::Base
 	def total_cost
 		self.shopping_items.sum("price * quantity")
 	end
+
+	
+
+
 end

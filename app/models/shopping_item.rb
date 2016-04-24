@@ -7,4 +7,11 @@ class ShoppingItem < ActiveRecord::Base
   def completed?
   	!completed.blank?
   end 
+
+  def cost_by_user
+  	ShoppingItem.group(:buyer).sum("price * quantity")
+  end
+
+
+  
 end
