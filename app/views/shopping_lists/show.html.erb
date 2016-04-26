@@ -18,7 +18,7 @@
  </div>
 
 <p>Total price : <%= @shopping_list.total_cost%></p>
-<p>Cost by user : <%@shopping_item.cost_by_user.each_pair do |user, cost| %></p>
+<p>Cost by user : <%@shopping_item.cost_by_user.each do |user, cost| %></p>
 <tr>
 <td>User: <%= user %> Total cost: <%= cost %></td>
 </tr></br>
