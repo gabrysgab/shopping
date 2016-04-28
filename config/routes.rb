@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   resources :shopping_lists do
     resources :shopping_items do
       member do

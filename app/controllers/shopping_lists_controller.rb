@@ -1,4 +1,5 @@
 class ShoppingListsController < ApplicationController
+  before_action :require_user, only: [:index, :show]
   before_action :set_shopping_list, only: [:show, :edit, :update, :destroy]
 
   # GET /shopping_lists
