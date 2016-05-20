@@ -3,8 +3,8 @@ class ShoppingItemsController < ApplicationController
   before_action :set_shopping_item, except: [:create]
 
  def create
-    
     @shopping_item = @shopping_list.shopping_items.new(shopping_item_params)
+    @shopping_item.buyer = current_user.first_name
     if @shopping_item.save
       redirect_to @shopping_list
       else
@@ -41,7 +41,7 @@ class ShoppingItemsController < ApplicationController
   end
 
 	def shopping_item_params
-		params[:shopping_item].permit(:content, :buyer, :quantity, :price)
+		params[:shopping_item].permit(:content, :quantity, :price)
 	end
 
 

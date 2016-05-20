@@ -7,7 +7,7 @@
   <li>Buyer : <%=shopping_item.buyer%></li>
 </strike></ul>
 <%= link_to "Delete", shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to "Mark as completed", complete_shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :patch %>
+<!--<%= link_to "Mark as completed", complete_shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :patch %>-->
 <% else %>
 <ul>
   <li>Item : <%= shopping_item.content%></li>
