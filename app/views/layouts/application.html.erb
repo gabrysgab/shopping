@@ -1,27 +1,28 @@
 <!DOCTYPE html>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shopping</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="container">
 <%= yield %>
 
-
 <% if current_user %>
-	<ul>
-		<li><%= current_user.first_name %></li>
-		<li><%= link_to "Log out", logout_path, method: "delete"%></li>
-	</ul>
-	<% else %>
-	<ul>
-		<li><%= link_to "Login", login_path %></li>
-		<li><%= link_to "Signup", signup_path %></li>
-	</ul>
+	<div class="container">
+		<div class="row"><%= current_user.first_name %></div>
+		<div class="row"><%= link_to "Log out", logout_path, method: "delete"%></div>
+	</div>
+		<% else %>
+		<br>
+		<%= button_to "Signup", signup_path, :method => "get", class: "btn btn-default"  %>
 <% end %>
+</div>
 
 </body>
 </html>

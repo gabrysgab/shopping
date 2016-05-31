@@ -1,6 +1,6 @@
 <%= form_for([@shopping_list, @shopping_item]) do |f| %>
 <% if @shopping_item.errors.any? %>
-  <div>
+  <div class="alert alert-danger">
     <h2><%= pluralize(@shopping_item.errors.count, "error") %> prohibited this article from being saved:</h2>
     <ul>
     <% @shopping_item.errors.full_messages.each do |msg| %>

@@ -4,7 +4,7 @@ class ShoppingItemsController < ApplicationController
 
  def create
     @shopping_item = @shopping_list.shopping_items.new(shopping_item_params)
-    @shopping_item.buyer = current_user.first_name
+    @shopping_item.buyer = current_user.first_name + ' ' + current_user.last_name
     if @shopping_item.save
       redirect_to @shopping_list
       else

@@ -27,7 +27,8 @@ class ShoppingListsController < ApplicationController
   # POST /shopping_lists.json
   def create
     @shopping_list = ShoppingList.new(shopping_list_params)
-
+    @shopping_list.author = current_user.first_name + ' ' + current_user.last_name
+    
     respond_to do |format|
       if @shopping_list.save
         format.html { redirect_to @shopping_list, notice: 'Shopping list was successfully created.' }

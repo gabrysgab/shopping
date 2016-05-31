@@ -13,4 +13,8 @@
  *= require_tree .
  *= require_self
  */
-
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}
