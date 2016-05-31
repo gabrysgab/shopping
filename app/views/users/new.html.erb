@@ -1,24 +1,26 @@
-<div class ="login">
-	<div class ="container">
-		<div class ="form">
+		<div class="page-header">
+		<h1>Shopping App - Sign up!</h1>
+		</div>
+		<div class ="form-group">
+			<div class="jumbotron", style="max-width:600px">
+				<div class="col-sm4">
 
-		<h1>Sign up</h1>
 		<%= form_for @user do |f| %>
 			<%= f.label :first_name %>
-			<%= f.text_field :first_name %> <br />
+			<%= f.text_field :first_name, class: "form-control" %> <br />
 
 			<%= f.label :last_name %>
-			<%= f.text_field :last_name %> <br />
+			<%= f.text_field :last_name, class: "form-control" %> <br />
 
 			<%= f.label :email %> 
-			<%= f.text_field :email %> <br />
+			<%= f.text_field :email, class: "form-control" %> <br />
 
 			<%= f.label :password %>
-			<%= f.password_field :password %> <br />
+			<%= f.password_field :password, class: "form-control" %> <br />
 
 			<%= f.submit %>
 		<% end %>
 
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
