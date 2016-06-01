@@ -1,6 +1,8 @@
-<div class="page-header"><h1>Shopping Lists</h1></div>
+<div class="col-sm8"><h1>Shopping Lists</h1></div>
+<hr class="m-y-2">
 <div class="jumbotron">
 <table class="table">
+  <div class="col-sm8">
   <thead>
     <tr>
       <th><h3>Title</h3></th>
@@ -12,13 +14,13 @@
   <tbody>
     <% @shopping_lists.each do |shopping_list| %>
       <tr>
-        <td><h4><%= shopping_list.title %></h5></td>
-        <td><h4><%= shopping_list.comment %></h5></td>
+        <td><h5><%= shopping_list.title %></h5></td>
+        <td><h5><%= shopping_list.comment %></h5></td>
         <td><row><h6>Last updated : <%= shopping_list.updated_at %></h6></row>
         <row><h6>Created by : <%= shopping_list.author %></h6></row>
         </td>
         <td><%= button_to 'Show', shopping_list, :method => "get", class: "btn btn-default" %></td>
-        <% if current_user == shopping_list.author %>
+        <% if (current_user.first_name + ' ' + current_user.last_name) == shopping_list.author %>
         <td><%= button_to 'Edit', edit_shopping_list_path(shopping_list), :method => "get", class: "btn btn-default" %></td>
         <td><%= button_to 'Delete', shopping_list, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
         <% end %>
@@ -26,8 +28,10 @@
     <% end %>
   </tbody>
 </table>
-</div>
+
 <%= button_to 'New Shopping list', new_shopping_list_path, :method => 'get', class: "btn btn-default" %>
+</div>
+</div>
 <br>
 
 

@@ -27,7 +27,7 @@ class ShoppingItemsController < ApplicationController
 
   def complete
     @shopping_item.update_attribute(:completed, Time.now)
-    redirect_to @shopping_list, notice: "Item shopping completed!"
+    redirect_to @shopping_list
   end
 
 	private

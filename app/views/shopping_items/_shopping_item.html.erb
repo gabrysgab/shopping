@@ -1,22 +1,35 @@
+<div class="jumbotron", style="max-width:750px">
+    <div class="col-sm4">
 <% if shopping_item.persisted? %>
 <% if shopping_item.completed? %>
-<ul style="color:green"><strike>
-  <li>Item : <%= shopping_item.content%></li>
-  <li>Quantity : <%=shopping_item.quantity%></li>
-  <li>Price : <%=shopping_item.price%></li>
-  <li>Buyer : <%=shopping_item.buyer%></li>
-</strike></ul>
-<%= link_to "Delete", shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :delete, data: { confirm: "Are you sure?" } %>
-<!--<%= link_to "Mark as completed", complete_shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :patch %>-->
-<% else %>
-<ul>
-  <li>Item : <%= shopping_item.content%></li>
-  <li>Quantity : <%=shopping_item.quantity%></li>
-  <li>Price : <%=shopping_item.price%></li>
-  <li>Buyer : <%=shopping_item.buyer%></li>
-</ul>
-<%= link_to "Delete", shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to "Mark as completed", complete_shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :patch %>
-<% end %>
-<% end %>
 
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">Item : <%= shopping_item.content%></li>
+  <li class="list-group-item">Quantity : <%=shopping_item.quantity%></li>
+  <li class="list-group-item">Price : <%=shopping_item.price%></li>
+  <li class="list-group-item">Added by : <%=shopping_item.buyer%></li>
+</ul>
+   
+
+<% if (current_user.first_name + ' ' + current_user.last_name) == shopping_item.buyer %>
+<%= button_to "Delete", shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+<!--<%= link_to "Mark as completed", complete_shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :patch %>-->
+<% end %>
+<% else %>
+<ul class="list-group">
+  <li class="list-group-item active">Item : <%= shopping_item.content%></li>
+  <li class="list-group-item">Quantity : <%=shopping_item.quantity%></li>
+  <li class="list-group-item">Price : <%=shopping_item.price%></li>
+  <li class="list-group-item">Added by : <%=shopping_item.buyer%></li>
+</ul>
+
+<div class="btn-group">
+<% if (current_user.first_name + ' ' + current_user.last_name) == shopping_item.buyer %>
+<%= button_to "Delete", shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+<% end %>
+<%= button_to "Mark as completed", complete_shopping_list_shopping_item_path(@shopping_list, shopping_item.id), method: :patch, class: "btn btn-default" %>
+</div>
+<% end %>
+<% end %>
+  </div>
+</div>

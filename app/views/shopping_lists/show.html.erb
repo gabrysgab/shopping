@@ -1,32 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>Title:</strong>
   <%= @shopping_list.title %>
-</p>
-
-<p>
+</h1>
+<h2>
   <strong>Description:</strong>
   <%= @shopping_list.comment %>
-</p>
+</h2>
 
-<div id="shopping_items_wrapper">
+<hr class="m-y-2">
+
+
 <%= render @shopping_list.shopping_items%>
-	<div id="form">
+<div class="form-inline">
+	<div class="form-group">
 	<%= render "shopping_items/form"%>
 	</div>
- </div>
+</div>
 
-<p>Total price : <%= @shopping_list.total_cost%></p>
-<p>Cost by user : <%@shopping_item.cost_by_user.each do |user, cost| %></p>
-<tr>
-<td>User: <%= user %> Total cost: <%= cost %></td>
-</tr></br>
-<% end %>
+
+<hr class="m-y-2">
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>User</th>
+			<th>Cost</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@shopping_list.cost_by_user.each do |user, cost| %>
+		<tr>
+			<td><%= user %></td>
+			<td><%= cost %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<h2 class="pull-right">Total price : <%= @shopping_list.total_cost%></h2>
+
+
 	
 
 
 
 
 <!--<%= link_to 'Edit', edit_shopping_list_path(@shopping_list) %> |-->
-<%= link_to 'Back', shopping_lists_path %>
+<%= button_to 'Back', shopping_lists_path, :method => "get", class: "btn btn-default" %>
+
+
