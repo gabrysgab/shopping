@@ -2,7 +2,7 @@
 <%= form_for(@shopping_list) do |f| %>
   <% if @shopping_list.errors.any? %>
     <div class="alert alert-danger">
-      <h2><%= pluralize(@shopping_list.errors.count, "error") %> prohibited this shopping_list from being saved:</h2>
+      <h2><%= pluralize(@shopping_list.errors.count, "error") %> prohibited this shopping list from being saved:</h2>
 
       <ul>
       <% @shopping_list.errors.full_messages.each do |message| %>
